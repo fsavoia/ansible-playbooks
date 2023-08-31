@@ -1,0 +1,9 @@
+---
+- name: Check Operating System on Localhost
+  hosts: localhost
+  connection: local  # Run tasks on the localhost
+
+  tasks:
+    - name: Display Operating System
+      debug:
+        var: ansible_distribution
