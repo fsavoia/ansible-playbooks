@@ -1,5 +1,5 @@
 ---
-- name: Check Operating System on Localhost
+- name: Check Operating System on Localhost and Set Some Permission
   hosts: localhost
   connection: local  # Run tasks on the localhost
 
@@ -7,3 +7,9 @@
     - name: Display Operating System
       debug:
         var: ansible_distribution
+  
+    - name: create blank file on web1
+      file:
+        path: /tmp/perm.txt
+        state: touch
+        mode: '0640'
